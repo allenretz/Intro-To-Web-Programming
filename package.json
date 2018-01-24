@@ -18,5 +18,8 @@
   "homepage": "https://github.com/allenretz/Intro-To-Web-Programming#readme",
   "dependencies": {
     "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "^1.0.0"
   }
 }
