@@ -1,0 +1,22 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allenretz/Intro-To-Web-Programming.git"
+  },
+  "author": "Allen Retzler",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/allenretz/Intro-To-Web-Programming/issues"
+  },
+  "homepage": "https://github.com/allenretz/Intro-To-Web-Programming#readme",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
+}
