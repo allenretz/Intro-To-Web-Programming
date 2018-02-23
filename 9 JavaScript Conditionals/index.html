@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>JavaScript Conditionals</title>
+<style>
+	img { display: inline-block;}
+</style>
+</head>
+<body>
+	<!-- https://www.flickr.com/photos/142441693@N05/28196568860/in/photolist-JXCMyY-8WXNvN-7xdFmJ-5VPdDC-5pQsrj-debUUy-Y1pfBo-9itrgK-621eTR-5W5zZo-61Abyn-6XYxuc-5pL8B8-6maiLB-dFSJzJ-3N11Y9-2bUZnT-fAyosW-aKkie-RPNqVw-83Yqm2-9xz6Zq-3N11Bu-8ZSStk-9sCYkS-djQNAQ-61o3GS-8wpwnv-9szXZH-jsVrb-88Rquk-615d8v-9sCYr1-9sCYJC-kvqD1T-jsVoZ-jsVsy-ohni2D-7Q58Pu-aBAqs2-3N11K1-5Bv2SV-FvhUHv-KnPFaF-LaGygo-RHMdrZ-NWnYAJ-21ZVDKS-LbQ9Ed-LWHjyr
+	--><div id="pokemon">
+		<h1>Choose a Poké Ball</h1>
+		<img src="pokeball.jpg" onclick="choose(1)" title="pokeball 1"/>
+		<img src="pokeball.jpg" onclick="choose(2)" title="pokeball 2"/>
+		<img src="pokeball.jpg" onclick="choose(3)" title="pokeball 3"/>
+	</div>
+	
+	<script>
+		function choose(value){
+			e = document.getElementById("pokemon");
+			if (value == 1){ e.innerHTML = "<h1>You Choose Bulbasaur</h1><img src='bulbasaur.png'></img><br/><p>This is a grass type Pokémon</p>"; }
+			else if (value == 2) { e.innerHTML = "<h1>You Choose Squirtle</h1><img src='squirtle.png'></img><p>This is a water type Pokémon</p>";}
+			else{ e.innerHTML = "<h1>You Choose Charmander</h1><img src='charmander.png'></img><p>This is a fire type Pokémon</p>"; }
+		}
+			
+	</script>
+</body>
