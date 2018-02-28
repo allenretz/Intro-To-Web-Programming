@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>JavaScript Conditionals</title>
+<style>
+
+	/* In this situation I would normally use display: hidden; instead */
+	img { display: inline-block;}
+	#bulbtext, #squirtletext, #chartext{visibility: hidden;}
+</style>
+</head>
+<body>
+	<div id="pokemon">
+		<span id="text"> CHOOSE YOUR STARTER </span>
+		<div>
+		1) <img src="bulbasaur.png" onclick="bulbasaur()" title="bulbasaur"/>
+		2) <img src="squirtle.png" onclick="squirtle()" title="squirtle"/>
+		3) <img src="charmander.png" onclick="charmander()" title="charmander"/>
+	</div>
+	<div id = "bulbtext">Bulbasaur is a grass-type</div>
+	<div id = "squirtletext">Squirtle is a water-type</div>
+	<div id = "chartext">Charmander is a fire-type</div>
+	
+	<script>
+		function bulbasaur(){
+			document.getElementById("bulbtext").style.visibility= "visible";
+			document.getElementById("squirtletext").style.visibility= "hidden";
+			document.getElementById("chartext").style.visibility= "hidden";
+		}
+		function squirtle(){
+			document.getElementById("bulbtext").style.visibility= "hidden";
+			document.getElementById("squirtletext").style.visibility= "visible";
+			document.getElementById("chartext").style.visibility= "hidden";
+		}
+		function charmander(){
+			document.getElementById("bulbtext").style.visibility= "hidden";
+			document.getElementById("squirtletext").style.visibility= "hidden";
+			document.getElementById("chartext").style.visibility= "visible";
+		}
+			
+	</script>
+</body>
