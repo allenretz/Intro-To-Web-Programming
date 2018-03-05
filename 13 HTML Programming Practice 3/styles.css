@@ -1,0 +1,68 @@
+/*  City of Lamoni Colors
+
+	Red:      rgb(154, 27, 39)
+	Yellow:   rgb(215, 161,38)
+	Cyan:     rgb(74,93,119)
+	Cyan-drk: rgb(34,136,153)
+	Grey:     rgb(235,235,235)
+	White:    rgb(255,255,255)
+*/
+@import url('https://fonts.googleapis.com/css?family=Lato|Mina');
+
+
+*, *:before, *:after{
+	display: border-box;
+}
+
+
+body{ background-color: rgb(235,235,235);}
+
+nav{ /* Total Height: 70px = 15 + 5 + 20 + 20 */
+	margin-top: 15px;
+	margin-bottom: 5px;
+	padding: 0 3vw;
+	background-color: rgb(74,93,119);
+}
+
+nav a {
+	color: white;
+	font-size: 20px;
+	font-family: 'Lato', sans-serif; 
+	text-decoration: none;
+	padding: 0 7;
+	line-height: 60px;
+	display: inline-block;
+}
+
+nav a:hover{
+	background-color: rgb(154, 27, 39);
+}
+
+.outter-content {
+	margin: auto;
+	width: 94%;
+	height: calc( 100vh - 82px );
+	background-color: white;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+header{
+	background-color: rgb(154, 27, 39);
+	display: block;
+	width: 100%;
+	border-radius: 0px 5px;
+}
+
+h1{
+	color: rgb(34,136,153);
+	font-family: "Mina", sans-serif;
+	background-color: white;
+	font-size: 30px;
+	line-height: 30px;
+	display: inline-block;
+	padding: 5 20;
+	margin: 0 15 5 15;
+	width: calc( 100% - 30px );
+	border-radius: 0px 5px;
+}
