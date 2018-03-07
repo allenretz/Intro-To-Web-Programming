@@ -11,7 +11,7 @@
 
 
 *, *:before, *:after{
-	display: border-box;
+	box-sizing: border-box;
 }
 
 
@@ -36,14 +36,25 @@ nav a {
 	display: inline-block;
 }
 
+
 nav a:hover{
 	background-color: rgb(154, 27, 39);
+}
+
+nav .active{
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid White;
+	border-right: 5px solid White;
+	border-radius: 15px;
+	text-decoration: underline;
+	line-height: 50px;
 }
 
 .outter-content {
 	margin: auto;
 	width: 94%;
-	height: calc( 100vh - 82px );
+	height: calc( 100vh - 80px );
 	background-color: white;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -69,19 +80,19 @@ h1,h2{
 	display: inline-block;
 	padding: 5 20;
 	margin: 0 15 5 15;
-	width: calc( 100% - 30px );
+	width: 100%;
 	border-radius: 0px 5px;
 }
 
 .h2-wrapper{background-color: rgb(74,93,119); width: 50%;}
 
-h2{font-size: 24px; line-height: 24px; font-family: "Patua One"; color: rgb(154, 27, 39); width: 100%;}
+h2{font-size: 24px; line-height: 24px; font-family: "Patua One"; color: rgb(154, 27, 39); width: 150%;}
 
 
 .text{margin: 0px 10px ; max-width: 700px; line-height: 190%; font-size: 18px; display: inline-block;}
 img{margin:10px;}
 
-iframe{margin: 10px;}
+iframe{margin: 20px;}
 
 
 
