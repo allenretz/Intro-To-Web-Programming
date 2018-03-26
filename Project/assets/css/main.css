@@ -9,11 +9,13 @@ body{font-family: "Oswald", sans-serif;}
 header{padding: 20px; text-align: center;}
 h1{font-family: "Fjalla One", serif;}
 h2{text-align: center; font-size: 30px;}
-p{display: block; margin: 0px 20px; font-size: 24px;}
+p{display: block; margin: 0px 20px; font-size: 24px; line-height: 200%;}
 nav{margin: 0px 20px 0px 20px;}
 nav a { font-size: 24px; display: inline-block; background-color: #545E4A; color: #E8FCDE; padding: 6px 5px 6px 5px; text-decoration:  none;}
 nav a:hover{background-color: #A6C0F7;}
 nav .active{background-color: #F26E6E; padding-bottom: 26px;}
+
+strong{padding: 5px;}
 
 .bg-white  {background-color: #E8FCDE;}
 .white     {           color: #E8FCDE;}
@@ -40,6 +42,9 @@ nav .active{background-color: #F26E6E; padding-bottom: 26px;}
 
 .black::-moz-selection  {background-color: #545E4A; color: #E8FCDE;}
 .black::selection       {background-color: #545E4A; color: #E8FCDE;}
+
+.bg-black::-moz-selection  {background-color: #545E4A; color: #E8FCDE;}
+.bg-black::selection       {background-color: #545E4A; color: #E8FCDE;}
 
 .blue::-moz-selection  {background-color: #A6C0F7; color: #E8FCDE;}
 .blue::selection       {background-color: #A6C0F7; color: #E8FCDE;}
