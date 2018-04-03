@@ -11,5 +11,45 @@
 		<header><h1>What A Wonderful <strong>Game</strong> this is.<span class="mini">-- Don't you agree?</span></h1></header>
 		<nav><a href="index.html">The Introduction</a><a href="story.html">The Story</a><a href="history.html">The History</a><a class="active" href="game.html">The Game</a></nav>
 		<h2>The Game</h2>
+		<p>The game is quite simple. Wack a watermelon (10 pts), avoid bananas (-5 -pts), and try to get the highest score in 60 sec. Screen Will Redraw every 5 Seconds.</p>
+		<button id="gameStartButton" onclick="startGame()">I Understand the Game, Let's begin!</button>
+		<span id="gameScore">Score:0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span id="gameTime">Time: 60</span><img id="gameProgress" src="assets/img/5.png"></img>
+		<div id="gameBoard">
+			<img src="assets/img/watermelon.svg" style="width: 100px"><div style="display:inline-block;width:100px;height:100px;"></div></img><img src="assets/img/banana.svg" style="width: 100px"></img>
+		</div>
+		<script>
+		var timer = 60;
+		var score = 0;
+		var progress = 5;
+		
+		function clearBoard(){
+			document.getElementById("gameBoard").html();
+		}
+		function shuffleBoard(){
+			document.getElementById("gameBoard").html();
+		}
+		function startGame(){
+			timer = 60;
+			score = 0;
+			progress = 5;
+			document.getElementById("gameStartButton").style.display = "none";
+			gameTick();
+		}
+		function gameTick(){
+			if (timer != 0){
+				setTimeout(gameTick(), 5000);
+				document.getElementById("gameProgress").src="assets/img/"+ progress +".png";
+				progress -= 1;
+				progress %= 5;
+				if (progress == 0){
+					progress = 5;
+				}
+				timer -= 1;
+			}
+			else{
+				clearBoard();
+			}
+		}
+		</script>
 	</body>
 </html>

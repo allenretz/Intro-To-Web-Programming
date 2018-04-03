@@ -55,3 +55,8 @@ strong{padding: 5px;}
 
 .mini{font-size: 1.6rem;}
 
+#gameScore, #gameTime{
+	color: #A6C0F7;
+	font-size: 80px;
+}
+
