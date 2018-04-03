@@ -1,0 +1,21 @@
+<html lang="EN-US">
+<head>
+	<meta charset="utf-8"/>
+	<title>JavaScript Practice 2</title>
+</head>
+<body>
+	<script>
+		var phrase  = prompt("Enter a Potential Palendrome.");
+		var len     = phrase.length;
+		var reverse = "";
+		
+		for (i = len -1; i >= 0; i--){
+			reverse += phrase[i];
+		}
+		
+		if (phrase == reverse){ document.write("<p style='color:blue;'>" + reverse + "</p>"); }
+		else                  { document.write("<p>" + reverse + "</p>"); }
+		
+	</script>
+</body>
+</html>
