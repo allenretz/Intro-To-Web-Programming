@@ -11,45 +11,82 @@
 		<header><h1>What A Wonderful <strong>Game</strong> this is.<span class="mini">-- Don't you agree?</span></h1></header>
 		<nav><a href="index.html">The Introduction</a><a href="story.html">The Story</a><a href="history.html">The History</a><a class="active" href="game.html">The Game</a></nav>
 		<h2>The Game</h2>
-		<p>The game is quite simple. Wack a watermelon (10 pts), avoid bananas (-5 -pts), and try to get the highest score in 60 sec. Screen Will Redraw every 5 Seconds.</p>
+		<p>The game is quite simple. Wack a watermelon (10 pts), avoid bananas (-5 -pts), and try to get the highest score in 30 sec (plus 1 additional wack).</p>
 		<button id="gameStartButton" onclick="startGame()">I Understand the Game, Let's begin!</button>
-		<span id="gameScore">Score:0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span id="gameTime">Time: 60</span><img id="gameProgress" src="assets/img/5.png"></img>
-		<div id="gameBoard">
-			<img src="assets/img/watermelon.svg" style="width: 100px"><div style="display:inline-block;width:100px;height:100px;"></div></img><img src="assets/img/banana.svg" style="width: 100px"></img>
-		</div>
+		<span id="gameScore">Score:0</span>
+		<div id="gameBoard"></div>
 		<script>
-		var timer = 60;
+		var timer = 30;
 		var score = 0;
-		var progress = 5;
+    var objectList = ["B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", // 13 Bananas
+                      "W", "W", "W", "W", "W", // 5 Watermelons
+                      " ", " ", " "] // 3 blanks
+    var end;
+    
+    function getRandomInt(min, max) { //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    }
 		
 		function clearBoard(){
-			document.getElementById("gameBoard").html();
+			document.getElementById("gameBoard").innerHTML = "";
+      document.getElementById("gameStartButton").style.display = "inline-block";
 		}
 		function shuffleBoard(){
-			document.getElementById("gameBoard").html();
+      var displayList = ["W"] // guarantee at least 1 watermelon
+      var r;
+      var tmp;
+      var out = "";
+      for (i = 0; i < 5; i ++){
+        displayList += objectList[getRandomInt(0, objectList.length)];
+      }
+      for (i = 0; i < displayList.length; i ++){
+        tmp = displayList[i];
+        r   = getRandomInt(0, displayList.length);
+        displayList[i] = displayList[r];
+        displayList[r] = tmp;
+        
+      }
+      for (i = 0; i < displayList.length; i ++){
+        if (displayList[i] == "W"){
+          out += "<img src='assets/img/watermelon.svg' onclick='watermelon()' style='width: 100px'/>";
+        }
+        else if (displayList[i] == "B"){
+          out += "<img src='assets/img/banana.svg'  onclick='banana()' style='width: 100px'/>";
+        }
+        else{
+          out += "<div style='display:inline-block;width:100px;height:100px;'></div>"
+        }
+      }
+			document.getElementById("gameBoard").innerHTML = out;
+      
 		}
 		function startGame(){
-			timer = 60;
 			score = 0;
-			progress = 5;
-			document.getElementById("gameStartButton").style.display = "none";
+      end = new Date();
+      end.setSeconds(end.getSeconds() + timer);
+      document.getElementById("gameStartButton").style.display = "none";
 			gameTick();
 		}
 		function gameTick(){
-			if (timer != 0){
-				setTimeout(gameTick(), 5000);
-				document.getElementById("gameProgress").src="assets/img/"+ progress +".png";
-				progress -= 1;
-				progress %= 5;
-				if (progress == 0){
-					progress = 5;
-				}
-				timer -= 1;
+      document.getElementById("gameScore").innerHTML="Score: " + score;
+			if (Date.now() > end){
+        clearBoard();
 			}
 			else{
-				clearBoard();
+				shuffleBoard();
 			}
 		}
+    
+    function watermelon(){
+      score += 10;
+      gameTick();
+    }
+    function banana(){
+      score -= 5;
+      gameTick();
+    }
 		</script>
 	</body>
 </html>
