@@ -11,17 +11,20 @@
 		<header><h1>What A Wonderful <strong>Game</strong> this is.<span class="mini">-- Don't you agree?</span></h1></header>
 		<nav><a href="index.html">The Introduction</a><a href="story.html">The Story</a><a href="history.html">The History</a><a class="active" href="game.html">The Game</a></nav>
 		<h2>The Game</h2>
-		<p>The game is quite simple. Wack a watermelon (10 pts), avoid bananas (-5 -pts), and try to get the highest score in 30 sec (plus 1 additional wack).</p>
+		<p>The game is quite simple. Wack a watermelon (10 pts), avoid bananas (-5 -pts), and try to get the highest score in 30 sec (plus 1 additional wack). P.S. My high score is 500.</p>
 		<button id="gameStartButton" onclick="startGame()">I Understand the Game, Let's begin!</button>
-		<span id="gameScore">Score:0</span>
+		<span id="gameScore">Score: 0</span>
 		<div id="gameBoard"></div>
 		<script>
-		var timer = 30;
-		var score = 0;
-    var objectList = ["B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", // 13 Bananas
-                      "W", "W", "W", "W", "W", // 5 Watermelons
+		
+	var timer = 30; // number of seconds the game lasts
+	var score = 0;  // the player's score
+	
+	// the probabilities table
+    var objectList = ["B", "B", "B", "B", "B", "B", "B", "B", "B", // 9 Bananas
+                      "W", "W", // 2 Watermelons
                       " ", " ", " "] // 3 blanks
-    var end;
+    var end; // used in timing
     
     function getRandomInt(min, max) { //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
       min = Math.ceil(min);
@@ -29,40 +32,45 @@
       return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
     }
 		
-		function clearBoard(){
-			document.getElementById("gameBoard").innerHTML = "";
-      document.getElementById("gameStartButton").style.display = "inline-block";
+	function clearBoard(){
+		document.getElementById("gameBoard").innerHTML = "";
+		document.getElementById("gameStartButton").style.display = "block";
+	}
+	
+	function shuffleBoard(){
+		var displayList = ["W", "B", " "] // guarantee at least 1 watermelon, 1 banana, and 1 blank
+		var r;
+		var tmp;
+		var out = "";
+		
+		//Add some random elements from objectList (probabilities table)
+		for (i = 0; i < 5; i ++){
+			displayList.push(objectList[getRandomInt(0, objectList.length)]);
+			console.log(displayList);
 		}
-		function shuffleBoard(){
-      var displayList = ["W"] // guarantee at least 1 watermelon
-      var r;
-      var tmp;
-      var out = "";
-      for (i = 0; i < 5; i ++){
-        displayList += objectList[getRandomInt(0, objectList.length)];
-      }
-      for (i = 0; i < displayList.length; i ++){
-        tmp = displayList[i];
-        r   = getRandomInt(0, displayList.length);
-        displayList[i] = displayList[r];
-        displayList[r] = tmp;
-        
-      }
-      for (i = 0; i < displayList.length; i ++){
-        if (displayList[i] == "W"){
-          out += "<img src='assets/img/watermelon.svg' onclick='watermelon()' style='width: 100px'/>";
-        }
-        else if (displayList[i] == "B"){
-          out += "<img src='assets/img/banana.svg'  onclick='banana()' style='width: 100px'/>";
-        }
-        else{
-          out += "<div style='display:inline-block;width:100px;height:100px;'></div>"
-        }
-      }
-			document.getElementById("gameBoard").innerHTML = out;
-      
+		//Shuffle these object's order
+		for (i = 0; i < displayList.length; i ++){
+			r   = getRandomInt(0, displayList.length);
+			tmp = displayList[i];
+			displayList[i] = displayList[r];
+			displayList[r] = tmp;
+			
 		}
-		function startGame(){
+		for (i = 0; i < displayList.length; i ++){
+			if (displayList[i] == "W"){
+			out += "<img src='assets/img/watermelon.svg' onmousedown='watermelon()' style='width: 100px; user-select: none; -moz-user-select:none;'/>";
+			}
+			else if (displayList[i] == "B"){
+			out += "<img src='assets/img/banana.svg'  onmousedown='banana()' style='width: 100px; user-select: none; -moz-user-select:none;'/>";
+			}
+			else{
+			out += "<div style='display:inline-block;width:100px;height:100px; user-select: none; -moz-user-select:none;'></div>"
+			}
+		}
+				document.getElementById("gameBoard").innerHTML = out;
+		
+	}
+	function startGame(){
 			score = 0;
       end = new Date();
       end.setSeconds(end.getSeconds() + timer);

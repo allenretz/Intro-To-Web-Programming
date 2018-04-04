@@ -17,6 +17,9 @@ nav .active{background-color: #F26E6E; padding-bottom: 26px;}
 
 strong{padding: 5px;}
 
+button{ display: block; height: 60px; padding 20px; margin: 5px; margin: auto; background-color: #F26E6E; border: none; color: #E8FCDE; font-size: 30px; }
+button:hover{ background-color: #A6C0F7;}
+
 .bg-white {background-color: #E8FCDE;}
 .white            {           color: #E8FCDE;}
                   
