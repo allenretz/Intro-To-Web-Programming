@@ -13,7 +13,6 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
-			.w3-parallax2{background-image: url("trees_orange_sky.jpg");}
 			.text-scroll{
 				color: black;
 				background-color: rgba(255,255,255, .6);
@@ -26,12 +25,46 @@
 			.transparent{ height: 500px;}
 			
 			.short{min-height: 100px;}
+      
+      .kc_parallax{
+        perspective: 1px;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .kc_parallax_layer{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      .kc_parallax_layer-base {
+        transform: translateZ(0);
+      }
+      .kc_parallax_layer-back {
+        transform: translateZ(-1px) scale(2); /* changes the object as if it were physically that much farther back; affects scrolling and scaling */
+        /*scale is calculated as 1 + (translateZ * -1) / perspective */
+      }
+      .kc_parallax_layer-back{ /* my addition */
+      background-image: url("bridge.jpg");
+      min-height: 2vh;
+      background-size: cover;
+      }
+      .kc_parallax_layer-base{ /* my addition */
+      background-color: transparent;
+      }
 		</style>
 	</head>
 	<body>
 	<h1>Parallax Scrolling</h1>
-	<div class="w3-parallax short"></div>
-	<div>
+  <!-- W3 Parallax
+        Only Works with Images
+        Images Don't move
+  -->
+  <div class="w3">
+    <div class="w3-parallax short"></div>
+    <div>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in lobortis dolor, eu ultricies turpis. Nulla ex diam, efficitur quis velit suscipit, molestie molestie orci. Sed dictum elit eros, at laoreet ligula laoreet non. Proin dictum lorem non magna cursus fermentum. Quisque mattis dolor porta lorem pellentesque, quis aliquet nibh faucibus. Cras porta sed augue fermentum laoreet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut erat sem, tincidunt sit amet feugiat eu, fermentum eget felis.
 
@@ -42,8 +75,21 @@ Suspendisse congue mi at lectus semper, dictum vulputate ligula varius. Class ap
 Maecenas sit amet leo semper, molestie ante sed, placerat ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ante nulla, commodo sed aliquam ut, tincidunt at dolor. Suspendisse et cursus lectus, at vehicula tortor. Fusce pulvinar sit amet arcu at elementum. Proin elementum vitae turpis accumsan porta. Maecenas molestie nulla enim, ultricies pulvinar lectus eleifend vehicula. Integer tincidunt maximus tristique. Integer tempor metus ipsum, ut pellentesque odio lobortis non. Nulla feugiat nisl vitae leo feugiat, quis eleifend neque hendrerit. Vestibulum mattis dictum erat, id blandit enim molestie et. Etiam enim risus, mattis semper diam sed, dictum tristique ipsum.
 
 Sed consectetur, erat vel placerat tincidunt, tortor est aliquet elit, ac tincidunt augue tortor non orci. Sed rutrum tortor metus, vel imperdiet nisl semper ac. Nam rutrum est risus, eget aliquam odio ornare vitae. Nunc faucibus neque eu blandit mattis. Etiam laoreet porta lectus, et imperdiet diam posuere nec. Curabitur et condimentum enim, at mattis sem. Aliquam tristique massa sapien, nec pretium lacus rhoncus non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla a convallis nunc, vel efficitur ante. Integer consectetur justo eget orci consectetur hendrerit. Maecenas purus arcu, lobortis nec bibendum vel, rutrum eu justo. Nam dapibus egestas pulvinar. Nulla non metus a sem fermentum consectetur sed et neque. Sed fringilla, lectus at tempus luctus, elit lacus ultricies leo, quis fermentum dui felis non odio. Integer dictum pretium leo eget aliquam. <div>
-	<div class="w3-parallax short"></div>
-	<div class="w3-parallax"><div class="text-scroll">This is parallax using the w3's method. This only works with images and has </div></div>
+    <div class="w3-parallax short"></div>
+    <div class="w3-parallax"><div class="text-scroll">This is how W3 does parallax. This only works with images, and the images don't move.</div></div>
+  </div>
+  <!-- Keith Clark's Parallax Demonstration
+      Uses 3d Transformations and scaling (almost supported by all browsers as of 2018)
+  --> 
+  <div class="keithclark">
+    <div class="kc_parallax">
+      <div class = "kc_parallax_layer kc_parallax_layer-back">
+      </div>
+      <div class = "kc_parallax_layer kc_parallax_layer-base">Hello
+      </div>
+    </div>
+  </div>
+	
 	
 	<!-- Images used are liscensed under cc0  https://creativecommons.org/publicdomain/zero/1.0/deed.en -->
 	</body>
