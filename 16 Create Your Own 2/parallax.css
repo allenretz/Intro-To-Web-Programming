@@ -1,0 +1,27 @@
+/* .parallax[options] - Defines the area in which to allow parallax scrolling.
+      -y  - scrolls in the y direction (default)
+      -x  - scrolls in the x direction
+*/
+.parallax, .parallax-y, .parallax-x {
+  perspective : 1px;
+  background-color: cornflowerblue;
+  height: 100vh;
+  width: 100vw;
+}
+
+.parallax .parallax-y{
+  overflow-x  : hidden;
+  overflow-y  : auto;
+}
+
+.parallax-x{
+  overflow-x  : auto;
+  overflow-y  : hidden;
+}
+
+/* .parallax_slide*/
+.parallax_slide{
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+}

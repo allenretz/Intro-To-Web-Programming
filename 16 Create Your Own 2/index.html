@@ -26,34 +26,6 @@
 			
 			.short{min-height: 100px;}
       
-      .kc_parallax{
-        perspective: 1px;
-        height: 100vh;
-        overflow-x: hidden;
-        overflow-y: auto;
-      }
-      .kc_parallax_layer{
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-      .kc_parallax_layer-base {
-        transform: translateZ(0);
-      }
-      .kc_parallax_layer-back {
-        transform: translateZ(-1px) scale(2); /* changes the object as if it were physically that much farther back; affects scrolling and scaling */
-        /*scale is calculated as 1 + (translateZ * -1) / perspective */
-      }
-      .kc_parallax_layer-back{ /* my addition */
-      background-image: url("bridge.jpg");
-      min-height: 2vh;
-      background-size: cover;
-      }
-      .kc_parallax_layer-base{ /* my addition */
-      background-color: transparent;
-      }
 		</style>
 	</head>
 	<body>
