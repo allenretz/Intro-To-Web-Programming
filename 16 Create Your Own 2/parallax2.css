@@ -1,0 +1,72 @@
+.demo{
+	margin: auto;
+	margin-top: 12.5vh;
+	width: 75vw;
+	height: 75vh;
+	//outline: 1px dashed black;
+}
+
+.parallax {
+    height: inherit;
+    width: inherit;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+  }
+
+  .parallax__group {
+    position: relative;
+    height: inherit;
+    width: inherit;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+		overflow: visible;
+		//padding-bottom: 38vh;
+		
+  }
+	
+	.title{
+		margin-top: 38vh;
+		text-align: center;
+	}
+
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .parallax__layer--fore {
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+		background-color: rgba(255,255,0,.5);
+		z-index: 6;
+  }
+
+  .parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+		//background-color: rgba(0,127,0,.9);
+		z-index: 5;
+  }
+
+  .parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+		background-image: url("mountain.jpg");
+		height: 75vh;
+		z-index: 4;
+  }
+
+  .parallax__layer--deep {
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+		background-color: rgba(0,50,0,.5);
+  }
+	
+	.parallax__group:nth-of-type(odd){
+		z-index: 1;
+	}
