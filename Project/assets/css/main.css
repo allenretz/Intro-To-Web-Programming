@@ -9,11 +9,15 @@ body{font-family: "Oswald", sans-serif;}
 header{padding: 20px; text-align: center;}
 h1{font-family: "Fjalla One", serif;}
 h2{text-align: center; font-size: 30px;}
+h3{text-align: center; font-size: 22px;}
 p{display: block; margin: 0px 20px; font-size: 24px; line-height: 200%;}
 nav{margin: 0px 20px 0px 20px;}
 nav a { font-size: 24px; display: inline-block; background-color: #545E4A; color: #E8FCDE; padding: 6px 5px 6px 5px; text-decoration:  none;}
 nav a:hover{background-color: #A6C0F7;}
 nav .active{background-color: #F26E6E; padding-bottom: 26px;}
+
+img{margin-left: 20px;}
+
 
 strong{padding: 5px;}
 
@@ -31,7 +35,7 @@ button:hover{ background-color: #A6C0F7;}
                   
                   
 .bg-blue          {background-color: #A6C0F7;}
-.blue, strong, h2 {           color: #A6C0F7;}
+.blue, strong, h2,h3 {           color: #A6C0F7;}
 
 .bg-red           {background-color: #F26E6E;}
 .red, .mini, p    {           color: #F26E6E;}
@@ -50,13 +54,15 @@ button:hover{ background-color: #A6C0F7;}
 .bg-red::-moz-selection, .active::-moz-selection {background-color: #E8FCDE; color: #F26E6E; border: 1px solid #F26E6E;}
 .bg-red::selection     , .active::selection      {background-color: #E8FCDE; color: #F26E6E; border: 1px solid #F26E6E;}
 
-.blue::-moz-selection, strong::-moz-selection, h2::-moz-selection      {background-color: #A6C0F7; color: #E8FCDE;}
-.blue::selection,  strong::selection, h2::selection         {background-color: #A6C0F7; color: #E8FCDE;}
+.blue::-moz-selection, strong::-moz-selection, h2::-moz-selection, h3::-moz-selection      {background-color: #A6C0F7; color: #E8FCDE;}
+.blue::selection,  strong::selection, h2::selection, h3::selection         {background-color: #A6C0F7; color: #E8FCDE;}
 
 
 .rotate    {display: inline-block; transform: rotate(9.5deg);}
 
 .mini{font-size: 1.6rem;}
+
+.sources{ padding-left: 20px;}
 
 #gameScore, #gameTime{
 	color: #A6C0F7;
